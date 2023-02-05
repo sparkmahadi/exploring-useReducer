@@ -80,7 +80,7 @@ const LongForm = () => {
                   })
                 }
               />
-              <label className='ml-2 text-lg' for='male'>
+              <label className='ml-2 text-lg' htmlFor='male'>
                 Male
               </label>
             </div>
@@ -97,7 +97,7 @@ const LongForm = () => {
                   })
                 }
               />
-              <label className='ml-2 text-lg' for='female'>
+              <label className='ml-2 text-lg' htmlFor='female'>
                 Female
               </label>
             </div>
@@ -114,14 +114,14 @@ const LongForm = () => {
                   })
                 }
               />
-              <label className='ml-2 text-lg' for='other'>
+              <label className='ml-2 text-lg' htmlFor='other'>
                 Other
               </label>
             </div>
           </div>
         </div>
         <div className='flex flex-col w-full max-w-xs'>
-          <label className='mb-3' for='education'>
+          <label className='mb-3' htmlFor='education'>
             Education
           </label>
           <select
@@ -143,19 +143,26 @@ const LongForm = () => {
         <div className='flex flex-col w-full max-w-xs'>
           <label className='mb-3'>Number of PCs</label>
           <div className='flex justify-between items-center gap-2 '>
-            <button className='bg-indigo-500 text-lg text-white rounded h-10 w-10 '>
+            <button onClick={(e)=>dispatch({
+              type: "DECREASE",
+              payload: {value: 1}
+              })}  
+              className='bg-indigo-500 text-lg text-white rounded h-10 w-10 '>
               -
             </button>
             <div className='border flex-1 flex justify-center items-center h-10 rounded-md border-gray-300'>
-              <span className='text-lg'>0</span>
+              <span className='text-lg'>{state.quantity}</span>
             </div>
-            <button className='bg-indigo-500 text-lg text-white rounded h-10 w-10'>
+            <button onClick={(e)=>dispatch({
+              type: "INCREASE",
+              payload: {value: 1}
+              })}  className='bg-indigo-500 text-lg text-white rounded h-10 w-10'>
               +
             </button>
           </div>
         </div>
         <div className='flex flex-col w-full max-w-xs'>
-          <label className='mb-3' for='feedback'>
+          <label className='mb-3' htmlFor='feedback'>
             Feedback
           </label>
           <textarea
@@ -181,7 +188,7 @@ const LongForm = () => {
               id='terms'
               onClick={() => dispatch({ type: "TOGGLE" })}
             />
-            <label for='terms'>I agree to terms and conditions</label>
+            <label htmlFor='terms'>I agree to terms and conditions</label>
           </div>
           <button
             className=' px-4 py-3 bg-indigo-500 rounded-md font-semibold text-white text-lg disabled:bg-gray-500'

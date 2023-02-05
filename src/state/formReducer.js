@@ -23,6 +23,16 @@ export const reducer = (state, action) => {
         ...state,
         term: !state.term,
       };
+    case actionTypes.INCREASE:
+      return {
+        ...state,
+        quantity: state.quantity + action.payload.value,
+      };
+    case actionTypes.DECREASE:
+      return {
+        ...state,
+        quantity: state.quantity - action.payload.value,
+      };
     default:
       return state;
   }
